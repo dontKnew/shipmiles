@@ -1,0 +1,149 @@
+@media screen and (max-width:767.98px) {
+   .about.about-3 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.feature-panel img{
+    padding:0;
+}
+.ic-service .feature-panel {
+    text-align:center;
+    height: auto;
+}
+.cases-clients{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.carousel-dots .owl-dots{
+    margin-top: 0;
+}
+.globe-bg{
+  padding: 70px 0;  
+}
+.map-heading {
+    position: absolute;
+    top: -30%;
+    padding: 0px;
+    left: 0%;
+}
+.heading .heading-title{
+        margin-bottom: 8px;
+}
+.p-logos img{
+    height:125px;
+}
+.bg-overlay:before {
+    content: "";
+    display: inline-block;
+    height: 100% !important;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.about.about-4{
+    padding-top: 5px;
+}
+.about2{
+    height:auto;
+    margin-bottom: 25px;
+}
+.international-img img{
+        height: auto;
+}
+.cargo-img img{
+    height: auto; 
+}
+.import-img img{
+   height: auto; 
+}
+.parcel-img img{
+    height: auto; 
+}
+.cargo-img img{
+   height: auto;  
+}
+.Food-img img{
+   height: auto;   
+}
+.wherehouse-img img{
+   height: auto;     
+}
+.import-img img{
+   height: auto;  
+}
+.import-img img{
+   height: auto;  
+}
+.heading.heading-3{
+    margin-bottom: 15px;
+}
+.heading.heading-3 .heading-title{
+    margin: 10px 0 0px 0px;
+}
+.vol-spacing {
+    padding: 0px 0 15px 0px;
+}
+.heading-volumate{
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 12px;
+}
+.globe-bg{
+     background: #14263c;   
+}
+.globe-bg .map-links a:before{
+    display:none;
+}
+.globe-bg .map-links a{
+    height: 28px;
+    width: 56%;
+    font-size: 12px;
+    font-size: 11px;
+}
+.table-responsive {
+    display: block !important;
+    }
+    
+    .faq-phone > a:before{
+        margin-bottom:70px;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) { 
+    .header .navbar-brand .logo{
+        width: 360px;
+    }
+    .banner-box{
+            padding-left: 15px !important;
+    }
+    .ic-service .feature-panel{
+            text-align: center;
+    }
+    .feature-panel img{
+        padding:0;
+    }
+    .btn-search a{
+        padding: 7px 12px
+    }
+    .heading.heading-10 .heading-title{
+    font-size: 24px;
+    line-height: 25px;
+    }
+    .counter .counter-num span, .counter .counter-num p{
+            font-size: 19px;
+    }
+    .counter .counter-name h6{
+            line-height: 20px;
+    }
+    .globe-bg{
+            background: #14263c;
+    }
+    
+}
+
+.table-responsive{
+    display: inline-table;
+}
+
