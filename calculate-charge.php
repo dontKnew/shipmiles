@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once(__DIR__ . '/library/config.php');
 extract(array_map("trim", $_GET));
 $ratelist = $db->table("ratelist")
-    ->select("ratelist.estimated_delivery", "ratelist.charge", "service.fuel_surcharge", "service.name as service", "service.discount", "service.logo")
+    ->select("ratelist.id", "ratelist.estimated_delivery", "ratelist.charge", "service.fuel_surcharge", "service.name as service", "service.discount", "service.logo")
     ->join("service", "service.id", "=", "ratelist.service")
     ->where("country", $destination)->get();
 
@@ -82,6 +83,7 @@ $package_list = $db->table("package_type")->orderBy("sort_order", "asc")->get()-
             <div class="col-md-12 py-2 d-flex align-items-center flex-column">
 
                 <?php foreach($ratelist as $rate):
+
                     $charge_obj = json_decode($rate->charge);
                     $charge = new stdClass();
                     $actual_charge = null;
@@ -138,21 +140,18 @@ $package_list = $db->table("package_type")->orderBy("sort_order", "asc")->get()-
                     </div>
 
                     <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center p-1">
-                        <?php if(!$oncall): ?>
-                        <form action="shipping-charges.php" method="post" id="modify_data">
+                        <?php if(!$oncall):
+                            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+                            ?>
+                        <form action="book.php" method="post" id="modify_data">
 
-                            <input type="hidden" name="company" value="2">
-                            <input type="hidden" name="network_code" value="D EXPRESS">
-                            <input type="hidden" name="remote_area_charge" value="3196">
-                            <input type="hidden" name="country" value="US">
-                            <input type="hidden" name="weight" value="8.5">
-                            <input type="hidden" name="estimated_delivery" value="3-5 Days">
-                            <input type="hidden" name="package_type" value="Document">
-                            <input type="hidden" name="amount" value="6517">
-                            <input type="hidden" name="service_type" value="D EXPRESS">
-                            <input type="hidden" name="enquiry_id" value="10280">
-                            <input type="hidden" name="company" value="2">
-                            <input type="submit" name="confirm_step1" style="margin-top: 6px;" class="btn btn-outline-success"
+                            <input type="hidden" name="package_type" value="<?=$package_type?>">
+                            <input type="hidden" name="ratelist" value="<?=$rate->id?>">
+                            <input type="hidden" name="package_weight" value="<?=$package_weight?>">
+                            <input type="hidden" name="phone_no" value="<?=$phone?>">
+                            <input type="hidden" name="pickup_pincode" value="<?=$pickup_pincode?>">
+                            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
+                            <input type="submit" style="margin-top: 6px;" class="btn btn-outline-success"
                                    value="Book Now">
                         </form>
                         <?php else: ?>
